@@ -4,7 +4,7 @@ using System.Text;
 
 string[] products = File.ReadAllLines("store.txt", Encoding.UTF8);
 
-string newlyadded = "Себ";
+string newlyadded = "Себ1";
 int count = 10;
 
 for (int i = 0; i < products.Length; i++)
