@@ -1,26 +1,29 @@
 ﻿using ManagedAndUnmanaged;
-
-while (true)
+using System.Xml.Linq;
+class Program
 {
-    Console.WriteLine("Choose operation:");
-
-    var operation = Console.ReadLine();
-    if (operation == "enter")
+    static void Main(string[] args)
     {
-        Console.WriteLine("Name:");
-        var name = Console.ReadLine();
-
-        Console.WriteLine("Count:");
-        var count = int.Parse(Console.ReadLine());
-
-        using (Application application = new Application())
+        while (true)
         {
-            application.WriteProduct(name, count);
+            Console.WriteLine("Choose operation:");
+
+            var operation = Console.ReadLine();
+            if (operation == "enter")
+            {
+                Console.WriteLine("Name:");
+                var name = Console.ReadLine();
+
+                Console.WriteLine("Count:");
+                var count = int.Parse(Console.ReadLine());
+                doDome(name, count);
+                GC.Collect();
+            }
         }
     }
-}
-
-class test
-{
-
+    static void doDome(string name, int count)
+    {
+        Application application = new Application();
+        application.WriteProduct(name, count);
+    }
 }
