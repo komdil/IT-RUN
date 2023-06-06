@@ -1,12 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-using GenericExamples;
+﻿using GenericExamples;
 
 int maxSize = 10;
-
 Queue queue = new Queue(maxSize);
-queue.AddToQueue(1122);
-queue.AddToQueue(1123);
-queue.AddToQueue(1124);
+queue.AddToQueue(new BankClient(1122, 100));
+queue.AddToQueue(new BankClient(1123, 200));
+queue.AddToQueue(new BankClient(1124, 300));
 queue.ShowQueue();
 queue.MakeService();
 queue.ShowQueue();
