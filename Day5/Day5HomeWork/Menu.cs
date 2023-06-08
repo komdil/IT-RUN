@@ -1,7 +1,7 @@
 ﻿
 namespace Day5HomeWork
 {
-    public class Menu : IMenu
+    public class Menu : IMenu<Menu>
     {
         public Menu()
         {
@@ -10,14 +10,13 @@ namespace Day5HomeWork
 
         public string MenuName { get; set; }
         public Menu[] Childs { get; set; }
-        IMenu[] IMenu.Childs { get => Childs; set => Childs = (Menu[])value; }
         public string Generate()
         {
             return $"<li>{MenuName}</li>";
         }
     }
 
-    public class ComplexMenu : IMenu
+    public class ComplexMenu : IMenu<ComplexMenu>
     {
         public ComplexMenu()
         {
@@ -27,16 +26,15 @@ namespace Day5HomeWork
         public string MenuName { get; set; }
         public string Href { get; set; }
         public ComplexMenu[] Childs { get; set; }
-        IMenu[] IMenu.Childs { get => Childs; set => Childs = (ComplexMenu[])value; }
         public string Generate()
         {
             return $"<li><a href='{Href}'>{MenuName}</a></li>";
         }
     }
 
-    public interface IMenu
+    public interface IMenu<T>
     {
-        IMenu[] Childs { get; set; }
+        T[] Childs { get; set; }
 
         string Generate();
     }

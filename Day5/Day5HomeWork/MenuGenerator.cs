@@ -8,7 +8,7 @@ namespace Day5HomeWork
 {
     public class MenuGenerator
     {
-        public static T GenerateMenu<T>(T menu) where T : IMenu
+        public static T GenerateMenu<T>(T menu) where T : IMenu<T>
         {
             StringBuilder SB = new();
 
@@ -20,14 +20,14 @@ namespace Day5HomeWork
             return menu;
         }
 
-        public static string GenerateMenuRecursive<T>(T menu) where T : IMenu
+        public static string GenerateMenuRecursive<T>(T menu) where T : IMenu<T>
         {
             StringBuilder SB = new();
             SB.AppendLine(menu.Generate());
 
             if (menu.Childs == null)
             {
-                //menu.Childs = Array.Empty<T>();
+                menu.Childs = new T[0];
             }
 
             if (menu.Childs.Length > 0)

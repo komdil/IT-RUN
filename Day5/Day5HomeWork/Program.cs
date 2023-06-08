@@ -34,3 +34,24 @@ google.Childs[0] = somon;
 google.Childs[1] = microsoft;
 
 MenuGenerator.GenerateMenu(google);
+
+var student = new Teacher();
+
+
+IMenu<ComplexMenu> menu = new ComplexMenu();
+
+
+
+class Person
+{
+
+}
+class Teacher : Person
+{
+
+}
+class Student : Person
+{
+
+}
+
