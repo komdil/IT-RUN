@@ -2,6 +2,9 @@
 
 using System.Text;
 
+List<string> productsList = File.ReadAllLines("store.txt").ToList();//2 
+
+
 string[] products = File.ReadAllLines("store.txt", Encoding.UTF8);
 
 string newlyadded = "Себ1";
