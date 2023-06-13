@@ -67,7 +67,7 @@ namespace LINQExamples
                 }
             }
 
-            var onlyNames = products.Select(s => s.Name);
+            var onlyNames = products.Select(s => s.Name.Contains("apple"));
         }
     }
 

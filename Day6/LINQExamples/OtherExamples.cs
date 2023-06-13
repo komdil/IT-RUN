@@ -8,5 +8,9 @@ namespace LINQExamples
 {
     internal class OtherExamples
     {
+        static void RUn()
+        {
+
+        }
     }
 }
