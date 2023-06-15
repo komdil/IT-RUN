@@ -4,6 +4,20 @@ using System.Collections.Generic;
 using System.Collections;
 using LINQExamples;
 
+SortedList<Student, Student> soretdStudents = new SortedList<Student, Student>();
+var student1 = new Student() { Age = 10 };
+var student2 = new Student() { Age = 5 };
+var student3 = new Student() { Age = 20 };
+
+soretdStudents.Add(student1, student1);
+soretdStudents.Add(student2, student2);
+soretdStudents.Add(student3, student3);
+foreach (var student in soretdStudents)
+{
+    Console.WriteLine(student.Value.Age);
+}
+
+Console.ReadLine();
 FirstExample.RunExample();
 
 List<string> students = new List<string>()
