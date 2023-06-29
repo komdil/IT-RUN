@@ -9,24 +9,15 @@ namespace MyWarehouse.Strategies
 {
     internal class CommandLineStrategyResolver : ICommandLineStrategyResolver
     {
+        IEnumerable<ICommandLineStrategy> _strategies;
+        public CommandLineStrategyResolver(IEnumerable<ICommandLineStrategy> strategies)
+        {
+            _strategies = strategies;
+        }
+
         public ICommandLineStrategy GetResolver(ConsoleKey consoleKey)
         {
-            if (consoleKey == ConsoleKey.A)
-            {
-                return new GetProductsStrategy();
-            }
-            else if (consoleKey == ConsoleKey.B)
-            {
-                return new AddProductStrategy();
-            }
-            else if (consoleKey == ConsoleKey.C)
-            {
-                return new SellProductStrategy();
-            }
-            else
-            {
-                throw new NotImplementedException();
-            }
+            return _strategies.Single(s => s.StrategyKey == consoleKey);
         }
     }
 }

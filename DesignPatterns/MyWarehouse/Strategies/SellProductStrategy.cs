@@ -7,11 +7,11 @@ namespace MyWarehouse.Strategies
     internal class SellProductStrategy : ICommandLineStrategy
     {
         IProductRepository _productRepository;
-        public SellProductStrategy()
+        public SellProductStrategy(IProductRepository productRepository)
         {
-            _productRepository = new ProductRepository();
+            _productRepository = productRepository;
         }
-
+        public ConsoleKey StrategyKey => ConsoleKey.C;
         public void Execute()
         {
             Console.WriteLine("Продать продукт:");

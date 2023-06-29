@@ -7,10 +7,12 @@ namespace MyWarehouse.Strategies
     internal class AddProductStrategy : ICommandLineStrategy
     {
         IProductRepository _productRepository;
-        public AddProductStrategy()
+        public AddProductStrategy(IProductRepository productRepository)
         {
-            _productRepository = new ProductRepository();
+            _productRepository = productRepository;
         }
+
+        public ConsoleKey StrategyKey => ConsoleKey.B;
 
         public void Execute()
         {

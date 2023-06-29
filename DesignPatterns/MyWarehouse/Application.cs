@@ -13,9 +13,9 @@ namespace MyWarehouse
     public class Application
     {
         ICommandLineStrategyResolver _resolver;
-        public Application()
+        public Application(ICommandLineStrategyResolver commandLineStrategy)
         {
-            _resolver = new CommandLineStrategyResolver();
+            _resolver = commandLineStrategy;
         }
 
         public void Start()

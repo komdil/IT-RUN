@@ -15,10 +15,6 @@ serviceCollection.AddSingleton<ICommandLineStrategy, AddProductStrategy>();
 serviceCollection.AddSingleton<ICommandLineStrategy, SellProductStrategy>();
 
 serviceCollection.AddSingleton<Application>();
-
-
 var provider = serviceCollection.BuildServiceProvider();
-
-//var service = provider.GetRequiredService();
-//Application application = new Application();
-//application.Start();
+Application application = provider.GetRequiredService<Application>();
+application.Start();

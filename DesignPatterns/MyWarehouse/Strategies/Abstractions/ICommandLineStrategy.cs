@@ -8,6 +8,7 @@ namespace MyWarehouse.Strategies.Abstractions
 {
     public interface ICommandLineStrategy
     {
+        ConsoleKey StrategyKey { get; }
         void Execute();
     }
 }
