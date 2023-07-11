@@ -67,7 +67,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "REST\Empl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Api", "REST\EmployeeService\src\Web.Api\Web.Api\Web.Api.csproj", "{9D7CAA7C-A4D1-4B3B-B3BE-6CE77C20512B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Web.Api.Contacts", "REST\EmployeeService\src\New folder\Employee.Web.Api.Contacts\Employee.Web.Api.Contacts.csproj", "{2C305099-E09B-4D10-876C-03B8C240C5A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Web.Api.Contracts", "REST\EmployeeService\src\New folder\Employee.Web.Api.Contacts\Employee.Web.Api.Contracts.csproj", "{2C305099-E09B-4D10-876C-03B8C240C5A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

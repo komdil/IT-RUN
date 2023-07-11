@@ -32,8 +32,8 @@ namespace Web.Api.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] CreateEmployeeDto dto)
         {
-            _employeeService.Create(dto.Name, dto.Salary, dto.Email, dto.UserName, dto.Password, dto.Position, dto.Department);
-            return NoContent();
+            var createdId = _employeeService.Create(dto.Name, dto.Salary, dto.Email, dto.UserName, dto.Password, dto.Position, dto.Department);
+            return Created($"Employees/{createdId}", null);
         }
 
         [HttpPut("{id}")]

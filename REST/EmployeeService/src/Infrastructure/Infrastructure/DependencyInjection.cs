@@ -1,7 +1,9 @@
 ﻿using Application.Abstractions.Repositories;
 using Application.Abstractions.Services;
+using Infrastructure.Data;
 using Infrastructure.Repositories;
 using Infrastructure.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -16,9 +18,13 @@ namespace Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
-            services.AddSingleton<IEmployeeRepository, EmployeeRepository>();
-            services.AddSingleton<IEmailSenderService, EmailSenderService>();
-            services.AddSingleton<IEmployeeService, EmployeeService>();
+            services.AddDbContext<ApplicationDbContext>(options =>
+            {
+                options.UseInMemoryDatabase("TestDB");
+            });
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<IEmailSenderService, EmailSenderService>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
             return services;
         }
     }

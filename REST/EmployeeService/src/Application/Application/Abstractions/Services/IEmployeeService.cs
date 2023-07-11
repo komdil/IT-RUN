@@ -8,7 +8,7 @@ namespace Application.Abstractions.Services
         IEnumerable<GetEmployeesResponse> GetAll();
         GetEmployeesResponse GetById(Guid id);
         IEnumerable<GetEmployeesResponse> GetByDepartment(string department);
-        void Create(string name, decimal salary, string email, string username, string password, string position, string department);
+        Guid Create(string name, decimal salary, string email, string username, string password, string position, string department);
         void Delete(Guid id);
         void Update(Guid id, string name, decimal salary, string email, string username, string password, string position, string department);
     }

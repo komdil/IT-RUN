@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -13,7 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Application\Application\Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrastructure.csproj" />
-    <ProjectReference Include="..\..\New folder\Employee.Web.Api.Contacts\Employee.Web.Api.Contacts.csproj" />
+    <ProjectReference Include="..\..\New folder\Employee.Web.Api.Contacts\Employee.Web.Api.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

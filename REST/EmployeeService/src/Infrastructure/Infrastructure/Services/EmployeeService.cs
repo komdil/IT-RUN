@@ -16,7 +16,7 @@ namespace Infrastructure.Services
             _emailSenderService = emailSenderService;
         }
 
-        public void Create(string name, decimal salary, string email, string username, string password, string position, string department)
+        public Guid Create(string name, decimal salary, string email, string username, string password, string position, string department)
         {
             var newEmployee = new Domain.Employee
             {
@@ -32,6 +32,7 @@ namespace Infrastructure.Services
 
             _repository.Add(newEmployee);
             _emailSenderService.SendEmail(email, "Welcome to company");
+            return newEmployee.Id;
         }
 
         public void Delete(Guid id)
