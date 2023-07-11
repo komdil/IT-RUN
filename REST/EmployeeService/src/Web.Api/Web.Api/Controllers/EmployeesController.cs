@@ -1,5 +1,7 @@
 using Application.Abstractions.Services;
 using Domain;
+using Employee.Web.Api.Contacts.Requests;
+using Employee.Web.Api.Contacts.Response;
 using Microsoft.AspNetCore.Mvc;
 using Web.Api.Dto;
 
@@ -7,28 +9,22 @@ namespace Web.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class EmployeeController : ControllerBase
+    public class EmployeesController : ControllerBase
     {
         private readonly IEmployeeService _employeeService;
-        public EmployeeController(IEmployeeService employeeService)
+        public EmployeesController(IEmployeeService employeeService)
         {
             _employeeService = employeeService;
         }
 
         [HttpGet]
-        public IEnumerable<Employee> Get()
+        public IEnumerable<GetEmployeesResponse> Get([FromQuery] GetEmployeesRequest request)
         {
             return _employeeService.GetAll();
         }
 
-        [HttpGet("Department/{department}")]
-        public IEnumerable<Employee> GetByDepartment(string department)
-        {
-            return _employeeService.GetByDepartment(department);
-        }
-
-        [HttpGet("ById/{id}")]
-        public Employee GetById(Guid id)
+        [HttpGet("{id}")]
+        public GetEmployeesResponse Get(Guid id)
         {
             return _employeeService.GetById(id);
         }
@@ -38,6 +34,12 @@ namespace Web.Api.Controllers
         {
             _employeeService.Create(dto.Name, dto.Salary, dto.Email, dto.UserName, dto.Password, dto.Position, dto.Department);
             return NoContent();
+        }
+
+        [HttpPut("{id}")]
+        public GetEmployeesResponse Put(Guid id)
+        {
+            return _employeeService.GetById(id);
         }
     }
 }

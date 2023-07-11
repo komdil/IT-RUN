@@ -1,6 +1,8 @@
-﻿using Application.Abstractions.Repositories;
+﻿using Application;
+using Application.Abstractions.Repositories;
 using Application.Abstractions.Services;
 using Domain;
+using Employee.Web.Api.Contacts.Response;
 
 namespace Infrastructure.Services
 {
@@ -16,7 +18,7 @@ namespace Infrastructure.Services
 
         public void Create(string name, decimal salary, string email, string username, string password, string position, string department)
         {
-            var newEmployee = new Employee
+            var newEmployee = new Domain.Employee
             {
                 Id = Guid.NewGuid(),
                 Name = name,
@@ -41,19 +43,20 @@ namespace Infrastructure.Services
             }
         }
 
-        public IEnumerable<Employee> GetAll()
+        public IEnumerable<GetEmployeesResponse> GetAll()
         {
-            return _repository.GetAll();
+            return Mapper.MapEmployee(_repository.GetAll());
         }
 
-        public IEnumerable<Employee> GetByDepartment(string department)
+        public IEnumerable<GetEmployeesResponse> GetByDepartment(string department)
         {
-            return _repository.GetAll().Where(s => s.Department == department);
+            return Mapper.MapEmployee(_repository.GetAll().Where(s => s.Department == department));
         }
 
-        public Employee GetById(Guid id)
+        public GetEmployeesResponse GetById(Guid id)
         {
-            return _repository.GetAll().FirstOrDefault(s => s.Id == id);
+            var employee = _repository.GetAll().FirstOrDefault(s => s.Id == id);
+            return Mapper.MapEmployee(employee);
         }
 
         public void Update(Guid id, string name, decimal salary, string email, string username, string password, string position, string department)
@@ -61,7 +64,7 @@ namespace Infrastructure.Services
             var existing = GetById(id);
             if (existing != null)
             {
-                var newEmployee = new Employee
+                var newEmployee = new Domain.Employee
                 {
                     Id = id,
                     Name = name,

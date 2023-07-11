@@ -55,17 +55,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamProject", "Exam\ExamPro
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "REST", "REST", "{D5135BD9-2E88-4BC1-86B3-D5540AEC3D1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "REST\EmployeeService\src\Domain\Domain\Domain.csproj", "{0E9FA182-693E-43D4-B887-254317C0C137}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "REST\EmployeeService\src\Domain\Domain\Domain.csproj", "{0E9FA182-693E-43D4-B887-254317C0C137}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EmployeeService", "EmployeeService", "{E77BE4CE-EDE3-480A-9492-4FA5FE0C780D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{67F9455F-E270-4FF9-A9DD-BD85AB2C932C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "REST\EmployeeService\src\Application\Application\Application.csproj", "{25B990A6-602D-42F3-BBAA-D017A184E9ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "REST\EmployeeService\src\Application\Application\Application.csproj", "{25B990A6-602D-42F3-BBAA-D017A184E9ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "REST\EmployeeService\src\Infrastructure\Infrastructure\Infrastructure.csproj", "{2560B91D-776A-416F-83AD-2F239901DE9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "REST\EmployeeService\src\Infrastructure\Infrastructure\Infrastructure.csproj", "{2560B91D-776A-416F-83AD-2F239901DE9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Api", "REST\EmployeeService\src\Web.Api\Web.Api\Web.Api.csproj", "{9D7CAA7C-A4D1-4B3B-B3BE-6CE77C20512B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web.Api", "REST\EmployeeService\src\Web.Api\Web.Api\Web.Api.csproj", "{9D7CAA7C-A4D1-4B3B-B3BE-6CE77C20512B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee.Web.Api.Contacts", "REST\EmployeeService\src\New folder\Employee.Web.Api.Contacts\Employee.Web.Api.Contacts.csproj", "{2C305099-E09B-4D10-876C-03B8C240C5A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -149,6 +151,10 @@ Global
 		{9D7CAA7C-A4D1-4B3B-B3BE-6CE77C20512B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D7CAA7C-A4D1-4B3B-B3BE-6CE77C20512B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D7CAA7C-A4D1-4B3B-B3BE-6CE77C20512B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C305099-E09B-4D10-876C-03B8C240C5A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C305099-E09B-4D10-876C-03B8C240C5A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C305099-E09B-4D10-876C-03B8C240C5A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C305099-E09B-4D10-876C-03B8C240C5A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -176,6 +182,7 @@ Global
 		{25B990A6-602D-42F3-BBAA-D017A184E9ED} = {67F9455F-E270-4FF9-A9DD-BD85AB2C932C}
 		{2560B91D-776A-416F-83AD-2F239901DE9A} = {67F9455F-E270-4FF9-A9DD-BD85AB2C932C}
 		{9D7CAA7C-A4D1-4B3B-B3BE-6CE77C20512B} = {67F9455F-E270-4FF9-A9DD-BD85AB2C932C}
+		{2C305099-E09B-4D10-876C-03B8C240C5A5} = {67F9455F-E270-4FF9-A9DD-BD85AB2C932C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EB0A90DA-BA93-4A16-B018-D3B0AC217CED}

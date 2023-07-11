@@ -6,12 +6,12 @@ namespace Application.Abstractions.Repositories
 {
     public interface IEmployeeRepository
     {
-        IEnumerable<Employee> GetAll();
+        IEnumerable<Domain.Employee> GetAll();
 
-        void Add(Employee employee);
+        void Add(Domain.Employee employee);
 
-        void Delete(Employee employee);
+        void Delete(Domain.Employee employee);
 
-        void Update(Guid id, Employee employee);
+        void Update(Guid id, Domain.Employee employee);
     }
 }
