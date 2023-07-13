@@ -6,7 +6,7 @@ namespace Application.Abstractions.Repositories
 {
     public interface IEmployeeRepository
     {
-        IEnumerable<Domain.Employee> GetAll();
+        IQueryable<Domain.Employee> GetAll();
 
         void Add(Domain.Employee employee);
 

@@ -1,6 +1,7 @@
 ﻿using Application.Abstractions.Repositories;
 using Domain;
 using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
@@ -24,9 +25,13 @@ namespace Infrastructure.Repositories
             _applicationDbContext.SaveChanges();
         }
 
-        public IEnumerable<Domain.Employee> GetAll()
+        public IQueryable<Domain.Employee> GetAll()
         {
-            return _applicationDbContext.Employees;
+            var myLinqQuery = _applicationDbContext.Employees;
+
+            var sqlQuery = myLinqQuery.ToQueryString();
+
+            return myLinqQuery;
         }
 
         public void Update(Guid id, Domain.Employee employee)

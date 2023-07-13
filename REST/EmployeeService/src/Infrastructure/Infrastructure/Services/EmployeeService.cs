@@ -2,6 +2,7 @@
 using Application.Abstractions.Repositories;
 using Application.Abstractions.Services;
 using Domain;
+using Employee.Web.Api.Contacts.Requests;
 using Employee.Web.Api.Contacts.Response;
 
 namespace Infrastructure.Services
@@ -44,9 +45,14 @@ namespace Infrastructure.Services
             }
         }
 
-        public IEnumerable<GetEmployeesResponse> GetAll()
+        public IEnumerable<GetEmployeesResponse> GetAll(GetEmployeesRequest request)
         {
-            return Mapper.MapEmployee(_repository.GetAll());
+            IQueryable<Domain.Employee> allEmployees = _repository.GetAll();
+
+            if (request.Department != null)
+                allEmployees = allEmployees.Where(s => s.Department == request.Department);
+
+            return Mapper.MapEmployee(allEmployees.ToList());
         }
 
         public IEnumerable<GetEmployeesResponse> GetByDepartment(string department)

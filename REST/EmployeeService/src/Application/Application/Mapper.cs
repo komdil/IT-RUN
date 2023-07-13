@@ -10,6 +10,7 @@ namespace Application
             return employees.Select(e => new GetEmployeesResponse()
             {
                 Name = e.Name,
+                City = e.Contact?.City,
             });
         }
 

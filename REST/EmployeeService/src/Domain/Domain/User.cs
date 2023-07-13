@@ -18,5 +18,8 @@ namespace Domain
 
         public string Password { get; set; }
 
+        public Guid ContactId { get; set; }
+
+        public virtual Contact Contact { get; set; }
     }
 }

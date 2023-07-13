@@ -9,5 +9,6 @@ namespace Employee.Web.Api.Contacts.Response
     public class GetEmployeesResponse
     {
         public string Name { get; set; }
+        public string? City { get; set; }
     }
 }

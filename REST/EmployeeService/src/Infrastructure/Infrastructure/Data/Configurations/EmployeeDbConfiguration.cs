@@ -7,7 +7,7 @@ namespace Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Domain.Employee> builder)
         {
-            builder.HasKey(e => e.Id);
+           
         }
     }
 }

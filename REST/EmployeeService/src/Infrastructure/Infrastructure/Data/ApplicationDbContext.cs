@@ -2,10 +2,12 @@
 
 namespace Infrastructure.Data
 {
-    internal class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
-        { }
+        {
+            Database.EnsureCreated();
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -14,5 +16,6 @@ namespace Infrastructure.Data
         }
 
         public DbSet<Domain.Employee> Employees { get; set; }
+        public DbSet<Domain.Contact> Contact { get; set; }
     }
 }

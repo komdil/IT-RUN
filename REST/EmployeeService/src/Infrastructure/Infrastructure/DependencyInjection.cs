@@ -20,7 +20,7 @@ namespace Infrastructure
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseInMemoryDatabase("TestDB");
+                options.UseSqlServer("Server=localhost;Database=EmployeeDB;Trusted_Connection=True;TrustServerCertificate=Yes");
             });
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IEmailSenderService, EmailSenderService>();
