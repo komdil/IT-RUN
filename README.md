@@ -72,25 +72,46 @@ We want to cover those items:
     REST and Web API
 
     Middleware and Request Pipeline
-Authentication and Authorization
+    
+    Authentication and Authorization
+    
 	Basic
+ 
 	JWT tokens
+ 
 	Identity Server
+ 
+
 Testing:
+
 	TDD
+ 
 	IntegrationTest
+ 
 	Unit testing
+ 
 CQRS and MediatR
+
 Data validation
+
 Logging and Error Handling
+
 Working with files
+
 Caching and Performance Optimization
+
 DevOps and Continuous Integration/Deployment (CI/CD)
+
 Docker and Containerization
+
 Multithreading introduction
+
 Async programming
+
 Creating an SDK
+
 Real-time Communication with SignalR
+
 Blazor
     
 **ORM**
