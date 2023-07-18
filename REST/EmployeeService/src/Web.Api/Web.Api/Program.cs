@@ -1,4 +1,5 @@
 using Infrastructure;
+using Web.Api.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +21,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+app.UseMiddleware<MyAuthMiddleware>();
 
 app.MapControllers();
 
