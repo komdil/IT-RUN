@@ -7,11 +7,11 @@ namespace Web.Api.Middlewares
     public class ExceptionHandlingMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger _logger;
-        public ExceptionHandlingMiddleware(RequestDelegate next, ILogger logger)
+      
+        public ExceptionHandlingMiddleware(RequestDelegate next)
         {
             _next = next;
-            _logger = logger;
+           
         }
 
         public async Task InvokeAsync(HttpContext context)

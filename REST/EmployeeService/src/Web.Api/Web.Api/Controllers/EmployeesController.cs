@@ -52,6 +52,7 @@ namespace Web.Api.Controllers
         [HttpGet]
         public IEnumerable<GetEmployeesResponse> Get([FromQuery] GetEmployeesRequest request)
         {
+            Task.Delay(20000).Wait();
             return _employeeService.GetAll(request);
         }
 
