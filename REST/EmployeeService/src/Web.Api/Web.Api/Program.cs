@@ -23,6 +23,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         ValidateAudience = false,
     };
 });
+builder.Services.AddAuthorization(op =>
+{
+    op.AddPolicy("admin", p => p.RequireRole("admin"));
+    op.AddPolicy("superadmin", p => p.RequireRole("superadmin"));
+});
 
 var app = builder.Build();
 
@@ -37,7 +42,9 @@ app.UseHttpsRedirection();
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseMiddleware<PerformanceHandlerMiddleware>();
+
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

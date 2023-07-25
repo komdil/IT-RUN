@@ -3,12 +3,14 @@ using Domain;
 using Employee.Web.Api.Contacts.Requests;
 using Employee.Web.Api.Contacts.Response;
 using Infrastructure.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Web.Api.Dto;
 
 namespace Web.Api.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("[controller]")]
     public class EmployeesController : ControllerBase
     {
@@ -52,7 +54,7 @@ namespace Web.Api.Controllers
         [HttpGet]
         public IEnumerable<GetEmployeesResponse> Get([FromQuery] GetEmployeesRequest request)
         {
-            Task.Delay(20000).Wait();
+            //Task.Delay(20000).Wait();
             return _employeeService.GetAll(request);
         }
 
@@ -62,6 +64,7 @@ namespace Web.Api.Controllers
             return _employeeService.GetById(id);
         }
 
+        [Authorize(Roles = "superadmin")]
         [HttpPost]
         public IActionResult Post([FromBody] CreateEmployeeDto dto)
         {
@@ -69,6 +72,7 @@ namespace Web.Api.Controllers
             return Created($"Employees/{createdId}", null);
         }
 
+        [Authorize(Roles = "admin")]
         [HttpPut("{id}")]
         public GetEmployeesResponse Put(Guid id)
         {
