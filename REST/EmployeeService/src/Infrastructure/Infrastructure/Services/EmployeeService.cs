@@ -1,6 +1,7 @@
 ﻿using Application;
 using Application.Abstractions.Repositories;
 using Application.Abstractions.Services;
+using AutoMapper;
 using Domain;
 using Employee.Web.Api.Contacts.Requests;
 using Employee.Web.Api.Contacts.Response;
@@ -11,10 +12,14 @@ namespace Infrastructure.Services
     {
         IEmployeeRepository _repository;
         IEmailSenderService _emailSenderService;
-        public EmployeeService(IEmployeeRepository employeeRepository, IEmailSenderService emailSenderService)
+        IMapper _mapper;
+
+        public EmployeeService(IEmployeeRepository employeeRepository,
+            IEmailSenderService emailSenderService, IMapper mapper)
         {
             _repository = employeeRepository;
             _emailSenderService = emailSenderService;
+            _mapper = mapper;
         }
 
         public Guid Create(string name, decimal salary, string email, string username, string password, string position, string department)
@@ -52,18 +57,18 @@ namespace Infrastructure.Services
             if (request.Department != null)
                 allEmployees = allEmployees.Where(s => s.Department == request.Department);
 
-            return Mapper.MapEmployee(allEmployees.ToList());
+            return Application.Mapper.MapEmployee(allEmployees.ToList());
         }
 
         public IEnumerable<GetEmployeesResponse> GetByDepartment(string department)
         {
-            return Mapper.MapEmployee(_repository.GetAll().Where(s => s.Department == department));
+            return _mapper.Map<IEnumerable<GetEmployeesResponse>>(_repository.GetAll().Where(s => s.Department == department));
         }
 
         public GetEmployeesResponse GetById(Guid id)
         {
-            var employee = _repository.GetAll().FirstOrDefault(s => s.Id == id);
-            return Mapper.MapEmployee(employee);
+            var employee = _repository.GetAll().FirstOrDefault();
+            return _mapper.Map<GetEmployeesResponse>(employee);
         }
 
         public void Update(Guid id, string name, decimal salary, string email, string username, string password, string position, string department)

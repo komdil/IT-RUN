@@ -1,4 +1,5 @@
-﻿using Application.Abstractions.Repositories;
+﻿using Application;
+using Application.Abstractions.Repositories;
 using Application.Abstractions.Services;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
@@ -22,6 +23,7 @@ namespace Infrastructure
             {
                 options.UseSqlServer("Server=localhost;Database=EmployeeDB;Trusted_Connection=True;TrustServerCertificate=Yes");
             });
+            services.AddApplication();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IEmailSenderService, EmailSenderService>();
             services.AddScoped<IEmployeeService, EmployeeService>();

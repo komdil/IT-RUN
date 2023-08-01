@@ -27,7 +27,7 @@ namespace Infrastructure.Repositories
 
         public IQueryable<Domain.Employee> GetAll()
         {
-            var myLinqQuery = _applicationDbContext.Employees;
+            var myLinqQuery = _applicationDbContext.Employees.Include(s => s.Contact);
             return myLinqQuery;
         }
 

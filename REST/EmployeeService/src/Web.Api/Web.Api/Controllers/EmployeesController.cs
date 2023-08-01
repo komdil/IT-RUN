@@ -10,7 +10,7 @@ using Web.Api.Dto;
 namespace Web.Api.Controllers
 {
     [ApiController]
-    [Authorize]
+    //[Authorize]
     [Route("[controller]")]
     public class EmployeesController : ControllerBase
     {
