@@ -85,6 +85,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DownloaderApp", "Downloader
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DownloaderApp", "DownloaderApp\DownloaderApp\DownloaderApp.csproj", "{471D70FC-81AD-4AE8-AFA3-314D12E40C9A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Threads", "Threads", "{2046F1B7-1A87-4F7B-8F3A-3FB2D1DF91BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multithreading", "Threads\Multithreading\Multithreading.csproj", "{F634DF31-ED09-41ED-B139-1E56EBC0B7AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -191,6 +195,10 @@ Global
 		{471D70FC-81AD-4AE8-AFA3-314D12E40C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{471D70FC-81AD-4AE8-AFA3-314D12E40C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{471D70FC-81AD-4AE8-AFA3-314D12E40C9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F634DF31-ED09-41ED-B139-1E56EBC0B7AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F634DF31-ED09-41ED-B139-1E56EBC0B7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F634DF31-ED09-41ED-B139-1E56EBC0B7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F634DF31-ED09-41ED-B139-1E56EBC0B7AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -224,6 +232,7 @@ Global
 		{4168CC12-845F-439B-8A76-EDB82168BC45} = {1C522E11-6715-46BD-AF80-48C787981495}
 		{8F4667F7-67A9-4E1A-8211-217827784E8A} = {1C522E11-6715-46BD-AF80-48C787981495}
 		{471D70FC-81AD-4AE8-AFA3-314D12E40C9A} = {4AC28D58-77B1-47CF-88E2-DFC30471C473}
+		{F634DF31-ED09-41ED-B139-1E56EBC0B7AB} = {2046F1B7-1A87-4F7B-8F3A-3FB2D1DF91BC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EB0A90DA-BA93-4A16-B018-D3B0AC217CED}
