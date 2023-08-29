@@ -19,25 +19,32 @@ using System.Diagnostics.Metrics;
 
 
 BlockingCollection<int> values = new BlockingCollection<int>();
+
+Task.Run(() =>
+{
+    foreach (var item in values.GetConsumingEnumerable())
+    {
+        //Send request to web site async
+        Console.WriteLine("Sending request to " + item);
+    }
+});
+
+
 StartCreatePayloads();
 void StartCreatePayloads()
 {
     Task.Run(() =>
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 15; i++)
         {
-            Task.Delay(1000).Wait();
-            Console.WriteLine($"Item {i} added");
             values.Add(i);
+            //Task.Delay(1000).Wait();
+            Console.WriteLine($"Item {i} added");
+          
         }
         values.CompleteAdding();
     });
 }
 
-foreach (var item in values.GetConsumingEnumerable())
-{
-    //Send request to web site async
-    Console.WriteLine("Sending request to " + item);
-}
 
 Console.ReadLine();
