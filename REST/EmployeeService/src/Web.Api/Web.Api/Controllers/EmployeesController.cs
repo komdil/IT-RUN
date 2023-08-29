@@ -1,11 +1,13 @@
 using Application.Abstractions.Services;
+using Application.Validatators;
 using Domain;
+using Employee.Web.Api.Contacts;
 using Employee.Web.Api.Contacts.Requests;
 using Employee.Web.Api.Contacts.Response;
+using FluentValidation.Results;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Web.Api.Dto;
 
 namespace Web.Api.Controllers
 {
@@ -15,10 +17,11 @@ namespace Web.Api.Controllers
     public class EmployeesController : ControllerBase
     {
         private readonly IEmployeeService _employeeService;
-        public EmployeesController(IEmployeeService employeeService, ApplicationDbContext context)
+        private readonly CreateEmployeeRequestValidator _validator;
+        public EmployeesController(IEmployeeService employeeService, ApplicationDbContext context, CreateEmployeeRequestValidator createEmployeeRequestValidator)
         {
             _employeeService = employeeService;
-
+            _validator = createEmployeeRequestValidator;
             if (!context.Employees.Any())
             {
                 var newContact = new Contact()
@@ -64,10 +67,17 @@ namespace Web.Api.Controllers
             return _employeeService.GetById(id);
         }
 
-        [Authorize(Roles = "superadmin")]
+        //  [Authorize(Roles = "superadmin")]
         [HttpPost]
         public IActionResult Post([FromBody] CreateEmployeeDto dto)
         {
+            ValidationResult validationResult = _validator.Validate(dto);
+
+            if (!validationResult.IsValid)
+            {
+                return BadRequest(validationResult.Errors);
+            }
+
             var createdId = _employeeService.Create(dto.Name, dto.Salary, dto.Email, dto.UserName, dto.Password, dto.Position, dto.Department);
             return Created($"Employees/{createdId}", null);
         }

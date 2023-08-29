@@ -1,4 +1,6 @@
-﻿namespace Web.Api.Dto
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Employee.Web.Api.Contacts
 {
     public record CreateEmployeeDto
     {
