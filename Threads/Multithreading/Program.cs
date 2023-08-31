@@ -1,6 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Multithreading;
 using System.Collections.Concurrent;
 using System.Diagnostics.Metrics;
+
+//DeadlockExample.Start();
+//ThreadPoolExample.Start();
+CancalationExample.Start();
+Console.ReadLine();
 ////TPL
 //Console.WriteLine("Hello, World!");
 //ConcurrentDictionary<string, string> metrics = new ConcurrentDictionary<string, string>();
@@ -18,33 +24,33 @@ using System.Diagnostics.Metrics;
 //}
 
 
-BlockingCollection<int> values = new BlockingCollection<int>();
+//BlockingCollection<int> values = new BlockingCollection<int>();
 
-Task.Run(() =>
-{
-    foreach (var item in values.GetConsumingEnumerable())
-    {
-        //Send request to web site async
-        Console.WriteLine("Sending request to " + item);
-    }
-});
-
-
-StartCreatePayloads();
-void StartCreatePayloads()
-{
-    Task.Run(() =>
-    {
-        for (int i = 0; i < 15; i++)
-        {
-            values.Add(i);
-            //Task.Delay(1000).Wait();
-            Console.WriteLine($"Item {i} added");
-          
-        }
-        values.CompleteAdding();
-    });
-}
+//Task.Run(() =>
+//{
+//    foreach (var item in values.GetConsumingEnumerable())
+//    {
+//        //Send request to web site async
+//        Console.WriteLine("Sending request to " + item);
+//    }
+//});
 
 
-Console.ReadLine();
+//StartCreatePayloads();
+//void StartCreatePayloads()
+//{
+//    Task.Run(() =>
+//    {
+//        for (int i = 0; i < 15; i++)
+//        {
+//            values.Add(i);
+//            //Task.Delay(1000).Wait();
+//            Console.WriteLine($"Item {i} added");
+
+//        }
+//        values.CompleteAdding();
+//    });
+//}
+
+
+//Console.ReadLine();
