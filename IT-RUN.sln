@@ -83,11 +83,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCalculatorApp", "TDD\MyCa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DownloaderApp", "DownloaderApp", "{4AC28D58-77B1-47CF-88E2-DFC30471C473}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DownloaderApp", "DownloaderApp\DownloaderApp\DownloaderApp.csproj", "{471D70FC-81AD-4AE8-AFA3-314D12E40C9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DownloaderApp", "DownloaderApp\DownloaderApp\DownloaderApp.csproj", "{471D70FC-81AD-4AE8-AFA3-314D12E40C9A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Threads", "Threads", "{2046F1B7-1A87-4F7B-8F3A-3FB2D1DF91BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Multithreading", "Threads\Multithreading\Multithreading.csproj", "{F634DF31-ED09-41ED-B139-1E56EBC0B7AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Multithreading", "Threads\Multithreading\Multithreading.csproj", "{F634DF31-ED09-41ED-B139-1E56EBC0B7AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DentalApp", "Threads\DentalApp\DentalApp.csproj", "{DEA2678A-675B-4D94-BDD9-D2625ACE96C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -199,6 +201,10 @@ Global
 		{F634DF31-ED09-41ED-B139-1E56EBC0B7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F634DF31-ED09-41ED-B139-1E56EBC0B7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F634DF31-ED09-41ED-B139-1E56EBC0B7AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA2678A-675B-4D94-BDD9-D2625ACE96C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA2678A-675B-4D94-BDD9-D2625ACE96C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA2678A-675B-4D94-BDD9-D2625ACE96C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA2678A-675B-4D94-BDD9-D2625ACE96C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -233,6 +239,7 @@ Global
 		{8F4667F7-67A9-4E1A-8211-217827784E8A} = {1C522E11-6715-46BD-AF80-48C787981495}
 		{471D70FC-81AD-4AE8-AFA3-314D12E40C9A} = {4AC28D58-77B1-47CF-88E2-DFC30471C473}
 		{F634DF31-ED09-41ED-B139-1E56EBC0B7AB} = {2046F1B7-1A87-4F7B-8F3A-3FB2D1DF91BC}
+		{DEA2678A-675B-4D94-BDD9-D2625ACE96C3} = {2046F1B7-1A87-4F7B-8F3A-3FB2D1DF91BC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EB0A90DA-BA93-4A16-B018-D3B0AC217CED}
