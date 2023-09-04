@@ -1,6 +1,7 @@
 using AccountService.Model;
 using AccountService.Requests;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -11,6 +12,11 @@ namespace AccountService.Controllers
     [Route("[controller]")]
     public class AccountController : ControllerBase
     {
+        DbContext applicationDbContext;
+        public AccountController(DbContext applicationDbContext)
+        {
+            this.applicationDbContext = applicationDbContext;
+        }
         static readonly User[] users = new User[]
         {
             new User()
@@ -24,9 +30,9 @@ namespace AccountService.Controllers
         const string appSettingsToken = "MyKeaskJKASJDKJASDUKKJSA781273,44$";
 
         [HttpPost]
-        public IActionResult Login([FromBody] LoginRequest loginRequest)
+        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
-            var user = users.FirstOrDefault(s => s.Username == loginRequest.Username && s.Password == loginRequest.Password);
+            var user = await applicationDbContext.Set<User>().FirstOrDefaultAsync(s => s.Username == loginRequest.Username && s.Password == loginRequest.Password);
             if (user != null)
             {
                 List<Claim> claims = new List<Claim>()

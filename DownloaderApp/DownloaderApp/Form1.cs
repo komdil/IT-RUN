@@ -44,6 +44,15 @@ namespace DownloaderApp
             });
         }
 
+        private async Task DownloadFromUrl1(int fileNumber)
+        {
+            await Task.Delay(2000);
+            this.Invoke(() =>
+            {
+                listBox1.Items.Add($"File {fileNumber} downloaded");
+            });
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -52,6 +61,11 @@ namespace DownloaderApp
         private void button3_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
+        }
+
+        private async void button4_Click(object sender, EventArgs e)
+        {
+            await DownloadFromUrl1(123);
         }
     }
 }
