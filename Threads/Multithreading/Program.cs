@@ -5,6 +5,7 @@ using System.Collections.Concurrent;
 using System.Diagnostics.Metrics;
 class Program
 {
+    public int MyProperty { get; set; }
     static async Task Main(string[] args)
     {
         //DeadlockExample.Start();
